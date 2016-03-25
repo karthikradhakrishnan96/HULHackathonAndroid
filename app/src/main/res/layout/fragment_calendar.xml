@@ -4,13 +4,10 @@
     android:layout_height="match_parent"
     android:padding="20dp"
     >
-    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-        android:id="@+id/calendarView"
+    <com.marcohc.robotocalendar.RobotoCalendarView
+        android:id="@+id/robotoCalendarPicker"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mcv_showOtherDates="all"
-        app:mcv_selectionColor="@color/cpb_blue"
-        />
+        android:layout_height="wrap_content">
+    </com.marcohc.robotocalendar.RobotoCalendarView>
 
 </RelativeLayout>
