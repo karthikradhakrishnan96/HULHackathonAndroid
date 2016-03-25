@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/prod"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/uni"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/editText"
+        app:met_primaryColor="@color/cpb_blue"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="Phone Number"
+        app:met_iconLeft="@drawable/phone"
+        android:layout_below="@id/imageView"
+        android:layout_width="match_parent"
+        android:inputType="phone"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"/>
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/btnWithText"
+        android:layout_below="@id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:cpb_textComplete="OTP VERIFIED"
+        app:cpb_selectorIdle="@drawable/idle_state_selector"
+        app:cpb_textError="VERIFICATION FAILED"
+        app:cpb_textIdle="GENERATE OTP"
+        android:onClick="buttonClick"/>
+
+
+</RelativeLayout>

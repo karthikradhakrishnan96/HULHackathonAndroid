@@ -1,0 +1,1 @@
+This Android project contains code for the HUL Hackathon
