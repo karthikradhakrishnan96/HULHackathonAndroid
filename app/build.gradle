@@ -37,4 +37,9 @@ dependencies {
     compile 'com.github.johnkil.android-robototextview:robototextview:2.5.0'
     compile 'com.github.marcohc:robotocalendarview:1.2.1'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
+    compile 'com.bignerdranch.android:expandablerecyclerview:1.0.3'
+    compile ('com.github.ganfra:material-spinner:1.1.1'){
+        exclude group: 'com.nineoldandroids', module: 'library'
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
 }

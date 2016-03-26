@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"/>
+    <com.devspark.robototextview.widget.RobotoTextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:padding="8dp"
+        android:text="Select the subject of your complaint"
+        android:textColor="#666"
+        android:textSize="18dp" />
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:ms_multiline="false"
+        app:ms_enableFloatingLabel="false"
+        app:ms_enableErrorLabel="false"
+        app:ms_floatingLabelText="floating label"
+        />
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"/>
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/mydesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:padding="8dp"
+        android:text="Select the criticality of your complaint"
+        android:textColor="#666"
+        android:textSize="18dp" />
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        >
+
+        <RadioButton
+            android:id="@+id/low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low"
+
+            android:buttonTint="@color/cpb_blue"
+
+            />
+
+        <RadioButton
+            android:id="@+id/meduim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium"
+
+            android:buttonTint="@color/cpb_blue"
+            />
+        <RadioButton
+            android:id="@+id/high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High"
+
+            android:buttonTint="@color/cpb_blue"
+            />
+
+    </RadioGroup>
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"/>
+</LinearLayout>
