@@ -7,14 +7,34 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.hulhack.quandrum.wireframes.R;
+import com.hulhack.quandrum.wireframes.data.Event;
+import com.hulhack.quandrum.wireframes.data.PromoModel;
 import com.marcohc.robotocalendar.RobotoCalendarView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -26,45 +46,27 @@ public class CalendarFragment extends Fragment implements RobotoCalendarView.Rob
     private RobotoCalendarView robotoCalendarView;
     private int currentMonthIndex;
     private Calendar currentCalendar;
-
-    public String test = "[\n" +
-            "    {\n" +
-            "        \"token\": \"Aasd12197\",\n" +
-            "        \"Area\": \"NORTH GUJARAT SALES AREA\",\n" +
-            "        \"CUSTOMER_ID\": \"0000101008\",\n" +
-            "        \"MOC\": 4,\n" +
-            "        \"number\": \"8050199000\",\n" +
-            "        \"Customer_ID\": \"0000101008\",\n" +
-            "        \"Region\": \"GUJARAT \",\n" +
-            "        \"Date\": \"2016-03-21\",\n" +
-            "        \"RS_Name\": \"BHUPENDRA STORES\",\n" +
-            "        \"Channel\": \"GT\",\n" +
-            "        \"Business\": \"U1\",\n" +
-            "        \"Activity_Type\": \"SALES TARGET\"\n" +
-            "    },\n" +
-            "    {\n" +
-            "        \"token\": \"Aasd12197\",\n" +
-            "        \"Area\": \"NORTH GUJARAT SALES AREA\",\n" +
-            "        \"CUSTOMER_ID\": \"0000101008\",\n" +
-            "        \"MOC\": 4,\n" +
-            "        \"number\": \"8050199000\",\n" +
-            "        \"Customer_ID\": \"0000101008\",\n" +
-            "        \"Region\": \"GUJARAT \",\n" +
-            "        \"Date\": \"2016-03-21\",\n" +
-            "        \"RS_Name\": \"BHUPENDRA STORES\",\n" +
-            "        \"Channel\": \"GT\",\n" +
-            "        \"Business\": \"U1\",\n" +
-            "        \"Activity_Type\": \"SALES TARGET\"\n" +
-            "    }\n" +
-            "]\n";
+    ArrayList<Event> events;
+    Map<String,Integer> months=new HashMap<>();
+    Set<Date> dates=new LinkedHashSet<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_calendar,null);
-        // Gets the calendar from the view
         robotoCalendarView = (RobotoCalendarView) root.findViewById(R.id.robotoCalendarPicker);
-
+        months.put("Aug",8);
+        months.put("Jan",1);
+        months.put("Dec",12);
+        months.put("Jun",6);
+        months.put("Mar",3);
+        months.put("Sep",9);
+        months.put("Feb",2);
+        months.put("Oct",10);
+        months.put("Apr",4);
+        months.put("Nov",11);
+        months.put("May",5);
+        months.put("Jul",7);
         // Set listener, in this case, the same activity
         robotoCalendarView.setRobotoCalendarListener(this);
 
@@ -72,8 +74,61 @@ public class CalendarFragment extends Fragment implements RobotoCalendarView.Rob
         currentMonthIndex = 0;
         currentCalendar = Calendar.getInstance(Locale.getDefault());
 
-        // Mark current day
-        robotoCalendarView.markDayAsCurrentDay(currentCalendar.getTime());
+
+        String token = "Aasd12197";
+        String id = "0000101008";
+        String URL="https://77ec4210.ngrok.io/calendar?token="+token+"&id="+ id;
+        Toast.makeText(getActivity(), URL, Toast.LENGTH_LONG).show();
+        events=new ArrayList<>();
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,URL ,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(getActivity(),response,Toast.LENGTH_LONG).show();
+                        try {
+                            JSONArray netArray = new JSONArray(response);
+                            for(int i=0; i<netArray.length();i++){
+                                JSONObject obj = netArray.getJSONObject(i);
+                                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                                String date=obj.getString("Date");
+                                String[] attrs=date.split("-");
+                                Toast.makeText(getActivity(),attrs[0]+"+"+attrs[1]+"+"+attrs[2],Toast.LENGTH_LONG).show();
+
+                                Date inputDate = dateFormat.parse(attrs[2] + "-" + attrs[1] + "-" + attrs[0]);
+                                dates.add(inputDate);
+                                events.add(new Event(
+                                        obj.getString("Activity_Type"),obj.getString("Customer_ID"),obj.getString("Business"),obj.getString("Channel"),obj.getString("CUSTOMER_ID"),obj.getString("Region"),obj.getString("Area"),obj.getString("MOC"),obj.getString("token"),obj.getString("Date"),obj.getString("RS_Name"),obj.getString("number"),inputDate));
+
+
+
+                                robotoCalendarView.markDayAsSelectedDay(inputDate);
+
+                            }
+
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Toast.makeText(getActivity(), "Error occurred. Try again", Toast.LENGTH_SHORT).show();
+
+                    }
+                }) {
+
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        requestQueue.add(stringRequest);
+
+        // Gets the calendar from the view
+
 
         return root;
     }
@@ -87,23 +142,9 @@ public class CalendarFragment extends Fragment implements RobotoCalendarView.Rob
     public void onDateSelected(Date date) {
 
         // Mark calendar day
-        robotoCalendarView.markDayAsSelectedDay(date);
-
-        // Mark that day with random colors
-        final Random random = new Random(System.currentTimeMillis());
-        final int style = random.nextInt(3);
-        switch (style) {
-            case 0:
-                robotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.BLUE_COLOR, date);
-                break;
-            case 1:
-                robotoCalendarView.markSecondUnderlineWithStyle(RobotoCalendarView.GREEN_COLOR, date);
-                break;
-            case 2:
-                robotoCalendarView.markFirstUnderlineWithStyle(RobotoCalendarView.RED_COLOR, date);
-                break;
-            default:
-                break;
+        if(dates.contains(date))
+        {
+            Toast.makeText(getActivity(),"LL",Toast.LENGTH_LONG).show();
         }
     }
 

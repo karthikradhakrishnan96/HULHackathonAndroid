@@ -17,6 +17,7 @@ import com.hulhack.quandrum.wireframes.R;
 import com.hulhack.quandrum.wireframes.fragments.AlertsFragment;
 import com.hulhack.quandrum.wireframes.fragments.ComplaintsFragment;
 
+import com.hulhack.quandrum.wireframes.fragments.DetailsFragment;
 import com.hulhack.quandrum.wireframes.fragments.FinanceFragment;
 import com.hulhack.quandrum.wireframes.fragments.SalesFragment;
 import com.hulhack.quandrum.wireframes.fragments.SupplyChainFragment;
@@ -107,6 +108,9 @@ public class NavActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_view) {
 
+        } else if (id == R.id.nav_details) {
+            fragment = new DetailsFragment();
+            setTitle("Profile");
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();

@@ -41,14 +41,14 @@
         android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        
+
         >
 
         <RadioButton
             android:id="@+id/low"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Low"
+            android:text="LOW"
 
             android:buttonTint="@color/cpb_blue"
 
@@ -58,7 +58,7 @@
             android:id="@+id/meduim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Medium"
+            android:text="MED"
 
             android:buttonTint="@color/cpb_blue"
             />
@@ -66,12 +66,26 @@
             android:id="@+id/high"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="High"
+            android:text="HIGH"
 
             android:buttonTint="@color/cpb_blue"
             />
 
     </RadioGroup>
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"/>
+    <com.dd.CircularProgressButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:id="@+id/submit"
+        android:background="@color/cpb_blue"
+        android:textColor="@color/cpb_white"
+        app:cpb_textError="   FAILED.CLICK TO RETRY   "
+        app:cpb_textIdle="   SUBMIT   "
+        />
     <Space
         android:layout_width="1dp"
         android:layout_height="30dp"/>

@@ -1,0 +1,120 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/complaint_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/toAnimate"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hulhack.quandrum.wireframes.libraries.LabelTextView
+            android:id="@+id/com_category"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="#212121"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="TextView"
+            android:textColor="#ffffff"
+            app:label_backgroundColor="@color/cpb_green_dark"
+            app:label_distance="25dp"
+            app:label_orientation="LEFT_TOP"
+            app:label_text="POP"
+            app:label_textSize="10sp" />
+
+        <com.devspark.robototextview.widget.RobotoTextView
+            android:id="@+id/com_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:text="Select the criticality of your complaint"
+            android:textColor="#666"
+            android:textSize="18dp" />
+
+        <LinearLayout
+            android:id="@+id/frame_expand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.devspark.robototextview.widget.RobotoTextView
+                android:id="@+id/com_solution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="3"
+                android:padding="8dp"
+                android:text="Select the criticality of your complaint"
+                android:textColor="#666"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.devspark.robototextview.widget.RobotoTextView
+                    android:id="@+id/com_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="3"
+                    android:padding="8dp"
+                    android:text="Select the criticality of your complaint"
+                    android:textColor="#666"
+                    android:textSize="15dp" />
+
+                <com.devspark.robototextview.widget.RobotoTextView
+                    android:id="@+id/com_priority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="3"
+                    android:padding="8dp"
+                    android:text="Select the criticality of your complaint"
+                    android:textColor="@color/orange"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.devspark.robototextview.widget.RobotoTextView
+                    android:id="@+id/com_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="3"
+                    android:padding="8dp"
+                    android:text="Select the criticality of your complaint"
+                    android:textColor="#666"
+                    android:textSize="18dp" />
+
+                <com.devspark.robototextview.widget.RobotoTextView
+                    android:id="@+id/com_region"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="3"
+                    android:padding="8dp"
+                    android:text="Select the criticality of your complaint"
+                    android:textColor="#666"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

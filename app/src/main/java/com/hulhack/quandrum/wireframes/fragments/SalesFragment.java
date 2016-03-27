@@ -25,7 +25,7 @@ public class SalesFragment extends Fragment {
 
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
-    public static int int_items = 4 ;
+    public static int int_items = 3 ;
 
     @Nullable
     @Override
@@ -75,8 +75,7 @@ public class SalesFragment extends Fragment {
             switch (position){
                 case 0 : return new PromosFragment();
                 case 1 : return new MembershipFragment();
-                case 2 : return new PaymentFragment();
-                case 3 : return new CalendarFragment();
+                case 2 : return new CalendarFragment();
             }
             return null;
         }
@@ -99,10 +98,8 @@ public class SalesFragment extends Fragment {
                 case 0 :
                     return "Promos";
                 case 1 :
-                    return "Member Status";
-                case 2 :
-                    return "Payment Mode";
-                case 3:
+                    return "Sales Details   ";
+                case 2:
                     return "Calendar";
             }
             return null;

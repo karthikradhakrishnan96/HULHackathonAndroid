@@ -1,4 +1,4 @@
-package com.hulhack.quandrum.wireframes.invoicemodels.adapters;
+package com.hulhack.quandrum.wireframes.supplychainmodels.adapters;
 
 /**
  * Created by Aman on 3/14/2016.
@@ -10,17 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import com.hulhack.quandrum.wireframes.R;
-import com.hulhack.quandrum.wireframes.invoicemodels.data.InvoiceModel;
+import com.hulhack.quandrum.wireframes.supplychainmodels.data.DataModel;
 
 import java.util.ArrayList;
-/*
+
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-    private ArrayList<InvoiceModel> dataSet;
+    private ArrayList<DataModel> dataSet;
 
-    public CustomAdapter(ArrayList<InvoiceModel> data) {
+    public CustomAdapter(ArrayList<DataModel> data) {
         this.dataSet = data;
     }
 
@@ -28,7 +27,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public MyViewHolder onCreateViewHolder(ViewGroup parent,
                                            int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.my_card2, parent, false);
+                .inflate(R.layout.my_card3, parent, false);
 
         //view.setOnClickListener(MainActivity.myOnClickListener);
 
@@ -43,8 +42,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         TextView textViewVersion = holder.description;
         //ImageView imageView = holder.imageViewIcon;
 
-        textViewName.setText(dataSet.get(listPosition).getName());
-        textViewVersion.setText(dataSet.get(listPosition).getVersion());
+        textViewName.setText("DELIVERY ID: "+dataSet.get(listPosition).getDeliveryID());
+        String secondaryText = "Transport Date: "+dataSet.get(listPosition).getTransportDate()+"\n"+
+                                "Shipping Point: "+dataSet.get(listPosition).getShippingPoint()+"\n"+
+                                "Total Weight: "+dataSet.get(listPosition).getTotalWeight()+"\n"+
+                                "Volume: "+dataSet.get(listPosition).getVolume()+"\n"+
+                                "Invoice Amount: "+dataSet.get(listPosition).getInvoiceAmount()+"\n"+
+                                "Sales Org: "+dataSet.get(listPosition).getSalesOrg();
+        textViewVersion.setText(secondaryText);
         //imageView.setImageResource(dataSet.get(listPosition).getImage());
     }
 
@@ -66,8 +71,4 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             //this.imageViewIcon = (ImageView) itemView.findViewById(R.id.thumbnail);
         }
     }
-}
-*/
-public class CustomAdapter{
-
 }
