@@ -10,7 +10,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -56,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         circularProgressButton.setIndeterminateProgressMode(true);
         Intent i = new Intent(this, GcmActivity.class);
         startActivity(i);
+        ImageView myImageView= (ImageView)findViewById(R.id.imageView);
+        Animation myFadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade);
+        myImageView.startAnimation(myFadeInAnimation); //Set animation to your ImageView
         mNumber.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {

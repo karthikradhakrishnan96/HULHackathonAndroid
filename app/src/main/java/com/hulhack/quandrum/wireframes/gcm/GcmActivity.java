@@ -16,6 +16,7 @@
 
 package com.hulhack.quandrum.wireframes.gcm;
 
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -46,7 +47,9 @@ public class GcmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gcm);
         setTitle("GCM Registration");
-
+        final ProgressDialog pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Please wait while we register you");
+        pDialog.show();
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -56,12 +59,13 @@ public class GcmActivity extends AppCompatActivity {
                         .getBoolean(QuickstartPreferences.SENT_TOKEN_TO_SERVER, false);
                 /*Intent i = new Intent(GcmActivity.this,NavActivity.class);
                 startActivity(i);*/
+                pDialog.hide();
                 finish();
-                if (sentToken) {
+               /* if (sentToken) {
                     mInformationTextView.setText("Finishing up...");
                 } else {
                     mInformationTextView.setText("Oops!");
-                }
+                }*/
             }
         };
         mInformationTextView = (TextView) findViewById(R.id.informationTextView);
