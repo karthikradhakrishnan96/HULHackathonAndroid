@@ -1,6 +1,7 @@
 package com.hulhack.quandrum.wireframes.activities;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -25,12 +26,18 @@ import com.dd.CircularProgressButton;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.hulhack.quandrum.wireframes.R;
 import com.hulhack.quandrum.wireframes.gcm.GcmActivity;
+import com.hulhack.quandrum.wireframes.supplychainmodels.adapters.CustomAdapter;
+import com.hulhack.quandrum.wireframes.supplychainmodels.data.DataModel;
+import com.hulhack.quandrum.wireframes.supplychainmodels.data.MyData;
 import com.hulhack.quandrum.wireframes.utils.AppController;
 import com.hulhack.quandrum.wireframes.utils.Router;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Hindustan Unilever");
+
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
+        if(prefs.contains("token"))
+            startActivity(new Intent(this, NavActivity.class));
+        
         mNumber=(EditText)findViewById(R.id.editText);
         // Tag used to cancel the request
         circularProgressButton=(CircularProgressButton)findViewById(R.id.btnWithText);
@@ -80,17 +92,60 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         circularProgressButton.setProgress(100);
-                        SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                        //////////////////////////
-                        // TO DO
-                        /////////////////////////
-                        String id = "0000101008";
-                        String token = "Aasd12197";
-                        editor.putString("id", id);
-                        editor.putString("token", token);
-                        editor.commit();
-                        Intent i=new Intent(MainActivity.this,NavActivity.class);
-                        startActivity(i);
+
+
+                        final ProgressDialog pDialog = new ProgressDialog(MainActivity.this);
+                        pDialog.setMessage("Loading...");
+                        pDialog.show();
+
+
+                        String URL="https://77ec4210.ngrok.io/login";
+                        StringRequest stringRequest = new StringRequest(Request.Method.POST,URL ,
+                                new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        Log.i("login response", response);
+                                        pDialog.hide();
+                                        try {
+                                            JSONObject json = new JSONObject(response);
+                                            JSONObject data = json.getJSONObject("data");
+                                            String cid = data.getString("Customer_ID");
+                                            String token = data.getString("token");
+                                            SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                                            editor.putString("id", cid);
+                                            editor.putString("token", token);
+
+
+                                            startActivity(new Intent(MainActivity.this, NavActivity.class));
+                                            finish();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        Toast.makeText(MainActivity.this, "Error occurred. Try again", Toast.LENGTH_SHORT).show();
+                                        Log.e("login error response", error.toString());
+                                        pDialog.hide();
+                                    }
+                                }){
+                            @Override
+                            protected Map<String, String> getParams() {
+                                Map<String,String> params=new HashMap<>();
+                                params.put("number",mNumber.getText().toString());
+                                params.put("otp", "otp");
+                                /////////////////////////////////////////////
+                                //TO DO
+                                /////////////////////////////////////////////
+                                return params;
+                            }
+
+                        };
+
+                        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                        requestQueue.add(stringRequest);
                     }
                 },
                 new Response.ErrorListener() {
