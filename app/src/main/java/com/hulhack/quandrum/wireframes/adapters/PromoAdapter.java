@@ -52,11 +52,15 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.MyViewHolder
         product.setLabelText("2 Days");
         business.setText(dataSet.get(listPosition).business);
         brand.setText(dataSet.get(listPosition).brand);
-        name.setText(dataSet.get(listPosition).name);
-        id.setText(dataSet.get(listPosition).id);
-        investment.setText(dataSet.get(listPosition).investment);
-        start.setText(dataSet.get(listPosition).start);
-        end.setText(dataSet.get(listPosition).end);
+        name.setText(dataSet.get(listPosition).name+"\n\n"+dataSet.get(listPosition).id+"\n\n"+dataSet.get(listPosition).investment+"\n\n"+dataSet.get(listPosition).start+"\n"+dataSet.get(listPosition).end);
+        //id.setText(dataSet.get(listPosition).id);
+        //investment.setText(dataSet.get(listPosition).investment);
+        //start.setText(dataSet.get(listPosition).start);
+        //end.setText(dataSet.get(listPosition).end);
+        id.setVisibility(View.GONE);
+        investment.setVisibility(View.GONE);
+        start.setVisibility(View.GONE);
+        end.setVisibility(View.GONE);
     }
 
     @Override

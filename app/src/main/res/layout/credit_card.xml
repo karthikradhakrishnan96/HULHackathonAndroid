@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <com.hulhack.quandrum.wireframes.libraries.LabelTextView
-            android:id="@+id/promo_product"
+            android:id="@+id/amount"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_gravity="center"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content">
 
             <com.devspark.robototextview.widget.RobotoTextView
-                android:id="@+id/promo_business"
+                android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -44,17 +44,9 @@
                 android:textColor="#666"
                 android:textSize="18dp" />
 
-            <com.devspark.robototextview.widget.RobotoTextView
-                android:id="@+id/promo_brand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:maxLines="3"
-                android:padding="8dp"
-                android:text="Select the criticality of your complaint"
-                android:textColor="#666"
-                android:textSize="18dp" />
         </LinearLayout>
+
+
 
         <LinearLayout
             android:id="@+id/frame_expand"
@@ -64,14 +56,16 @@
             android:visibility="gone">
 
             <com.devspark.robototextview.widget.RobotoTextView
-                android:id="@+id/promo_name"
+                android:id="@+id/secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:maxLines="3"
                 android:padding="8dp"
                 android:text="Select the criticality of your complaint"
                 android:textColor="#666"
                 android:textSize="18dp" />
+            <!--
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -126,9 +120,10 @@
                     android:textColor="#666"
                     android:textSize="18dp" />
             </LinearLayout>
-
+            -->
 
         </LinearLayout>
+
 
 
     </LinearLayout>
