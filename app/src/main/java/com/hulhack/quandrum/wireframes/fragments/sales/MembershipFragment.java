@@ -95,7 +95,7 @@ public class MembershipFragment extends Fragment {
                             for(int i=0; i<netArray.length();i++){
                                 JSONObject obj = netArray.getJSONObject(i);
                                 networkData.add(new SalesModel(
-                                        obj.getString("Region"),obj.getString("RS_Name"),obj.getString("Area"),obj.getString("RS_Sales_forecast"),obj.getString("RS_Sales"),obj.getString("CUSTOMER_ID")));  }
+                                        obj.getString("Region"),obj.getString("RS_Name"),obj.getString("Area"),obj.getString("RS_Sales_forecast"),obj.getString("RS_Sales"),obj.getString("MOC")));  }
 
                             adapter.notifyDataSetChanged();
 

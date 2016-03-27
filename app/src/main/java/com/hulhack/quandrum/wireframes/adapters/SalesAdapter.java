@@ -48,12 +48,21 @@ public class SalesAdapter extends RecyclerView.Adapter<SalesAdapter.MyViewHolder
         RobotoTextView RS_Sales = holder.RS_Sales;
         RobotoTextView CUSTOMER_ID = holder.CUSTOMER_ID;
 
+        CUSTOMER_ID.setText("MOC: "+dataSet.get(listPosition).CUSTOMER_ID);
+        String secondaryText = "Region: "+dataSet.get(listPosition).Region+"\n"+
+                                "RS Name: "+dataSet.get(listPosition).RS_Name+"\n"+
+                                "Area: "+dataSet.get(listPosition).Area+"\n"+
+                                "RS Sales Forecast: "+dataSet.get(listPosition).RS_Sales_forecast+"\n"+
+                                "RS Sales: "+dataSet.get(listPosition).RS_Sales;
+        Area.setText(secondaryText);
+/*
         Region.setText(dataSet.get(listPosition).Region);
         RS_Name.setText(dataSet.get(listPosition).RS_Name);
         Area.setText(dataSet.get(listPosition).Area);
         RS_Sales_forecast.setText(dataSet.get(listPosition).RS_Sales_forecast);
         RS_Sales.setText(dataSet.get(listPosition).RS_Sales);
         CUSTOMER_ID.setText(dataSet.get(listPosition).CUSTOMER_ID);
+*/
     }
 
     @Override
@@ -72,11 +81,11 @@ public class SalesAdapter extends RecyclerView.Adapter<SalesAdapter.MyViewHolder
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            this.Region= (RobotoTextView) itemView.findViewById(R.id.Region);
-            this.RS_Name= (RobotoTextView) itemView.findViewById(R.id.RS_Name);
+            //this.Region= (RobotoTextView) itemView.findViewById(R.id.Region);
+            //this.RS_Name= (RobotoTextView) itemView.findViewById(R.id.RS_Name);
             this.Area= (RobotoTextView) itemView.findViewById(R.id.Area);
-            this.RS_Sales_forecast= (RobotoTextView) itemView.findViewById(R.id.RS_Sales_forecast);
-            this.RS_Sales= (RobotoTextView) itemView.findViewById(R.id.RS_Sales);
+            //this.RS_Sales_forecast= (RobotoTextView) itemView.findViewById(R.id.RS_Sales_forecast);
+            //this.RS_Sales= (RobotoTextView) itemView.findViewById(R.id.RS_Sales);
             this.CUSTOMER_ID= (RobotoTextView) itemView.findViewById(R.id.CUSTOMER_ID);
         }
     }

@@ -28,8 +28,10 @@
                 android:maxLines="3"
                 android:padding="8dp"
                 android:text="Select the criticality of your complaint"
-                android:textColor="#666"
-                android:textSize="18dp" />
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+            <!--
             <com.devspark.robototextview.widget.RobotoTextView
                 android:id="@+id/RS_Name"
                 android:layout_width="wrap_content"
@@ -40,6 +42,7 @@
                 android:text="Select the criticality of your complaint"
                 android:textColor="#666"
                 android:textSize="18dp" />
+                -->
         </LinearLayout>
 
         <LinearLayout
@@ -54,11 +57,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:maxLines="3"
                 android:padding="8dp"
                 android:text="Select the criticality of your complaint"
                 android:textColor="#666"
-                android:textSize="18dp" />
+                android:textSize="14dp" />
+            <!--
 
 
                 <com.devspark.robototextview.widget.RobotoTextView
@@ -98,7 +101,7 @@
                     android:textSize="18dp" />
 
 
-
+                -->
 
 
         </LinearLayout>
