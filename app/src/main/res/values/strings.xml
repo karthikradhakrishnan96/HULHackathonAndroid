@@ -15,11 +15,11 @@
 
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
-        <item >Finance</item>
-        <item >Sales and Marketing</item>
-        <item >Supply Chain</item>
-        <item >Complaints</item>
-        <item >Alerts</item>
+        <item>Finance</item>
+        <item>Sales and Marketing</item>
+        <item>Supply Chain</item>
+        <item>Complaints</item>
+        <item>Alerts</item>
     </string-array>
     <string name="title_activity_menu">MenuActivity</string>
     <array name="nav_drawer_icons">

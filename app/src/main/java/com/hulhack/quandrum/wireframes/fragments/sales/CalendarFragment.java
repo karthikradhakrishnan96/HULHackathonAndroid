@@ -1,5 +1,6 @@
 package com.hulhack.quandrum.wireframes.fragments.sales;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -78,21 +79,24 @@ public class CalendarFragment extends Fragment implements RobotoCalendarView.Rob
         String token = "Aasd12197";
         String id = "0000101008";
         String URL="https://77ec4210.ngrok.io/calendar?token="+token+"&id="+ id;
-        Toast.makeText(getActivity(), URL, Toast.LENGTH_LONG).show();
+        final ProgressDialog pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
         events=new ArrayList<>();
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(getActivity(),response,Toast.LENGTH_LONG).show();
+
                         try {
+                            pDialog.hide();
                             JSONArray netArray = new JSONArray(response);
                             for(int i=0; i<netArray.length();i++){
                                 JSONObject obj = netArray.getJSONObject(i);
                                 DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                                 String date=obj.getString("Date");
                                 String[] attrs=date.split("-");
-                                Toast.makeText(getActivity(),attrs[0]+"+"+attrs[1]+"+"+attrs[2],Toast.LENGTH_LONG).show();
+
 
                                 Date inputDate = dateFormat.parse(attrs[2] + "-" + attrs[1] + "-" + attrs[0]);
                                 dates.add(inputDate);
@@ -115,7 +119,7 @@ public class CalendarFragment extends Fragment implements RobotoCalendarView.Rob
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        pDialog.hide();
                         Toast.makeText(getActivity(), "Error occurred. Try again", Toast.LENGTH_SHORT).show();
 
                     }
@@ -144,7 +148,7 @@ public class CalendarFragment extends Fragment implements RobotoCalendarView.Rob
         // Mark calendar day
         if(dates.contains(date))
         {
-            Toast.makeText(getActivity(),"LL",Toast.LENGTH_LONG).show();
+
         }
     }
 

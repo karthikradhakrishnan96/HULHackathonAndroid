@@ -1,5 +1,6 @@
 package com.hulhack.quandrum.wireframes.fragments.sales;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -84,13 +85,16 @@ public class MembershipFragment extends Fragment {
         String URL="https://77ec4210.ngrok.io/sales?token="+token+"&id="+ id;
 
         final ArrayList<SalesModel> networkData = new ArrayList<SalesModel>();
+        final ProgressDialog pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
 
-        Toast.makeText(getActivity(), URL, Toast.LENGTH_LONG).show();
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            pDialog.hide();
                             JSONArray netArray = new JSONArray(response);
                             for(int i=0; i<netArray.length();i++){
                                 JSONObject obj = netArray.getJSONObject(i);
@@ -107,7 +111,7 @@ public class MembershipFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        pDialog.hide();
                         Toast.makeText(getActivity(), "Error occurred. Try again", Toast.LENGTH_SHORT).show();
 
                     }

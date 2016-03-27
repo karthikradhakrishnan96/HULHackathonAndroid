@@ -1,5 +1,6 @@
 package com.hulhack.quandrum.wireframes.fragments.finance;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -85,12 +86,17 @@ public class InvoicesFragment extends Fragment {
 
         final ArrayList<InvoiceModel> networkData = new ArrayList<InvoiceModel>();
 
-        Toast.makeText(getActivity(), URL, Toast.LENGTH_LONG).show();
+
+        final ProgressDialog pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
+
+                            pDialog.hide();
                             JSONArray netArray = new JSONArray(response);
                             for(int i=0; i<netArray.length();i++){
                                 JSONObject obj = netArray.getJSONObject(i);
@@ -109,6 +115,7 @@ public class InvoicesFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        pDialog.hide();
                         Toast.makeText(getActivity(), "Error occurred. Try again", Toast.LENGTH_SHORT).show();
 
                     }

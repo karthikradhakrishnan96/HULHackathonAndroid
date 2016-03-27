@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -18,26 +17,16 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.dd.CircularProgressButton;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.hulhack.quandrum.wireframes.R;
 import com.hulhack.quandrum.wireframes.gcm.GcmActivity;
-import com.hulhack.quandrum.wireframes.supplychainmodels.adapters.CustomAdapter;
-import com.hulhack.quandrum.wireframes.supplychainmodels.data.DataModel;
-import com.hulhack.quandrum.wireframes.supplychainmodels.data.MyData;
-import com.hulhack.quandrum.wireframes.utils.AppController;
-import com.hulhack.quandrum.wireframes.utils.Router;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -116,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                                             SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                                             editor.putString("id", cid);
                                             editor.putString("token", token);
-
+                                            editor.commit();
 
                                             startActivity(new Intent(MainActivity.this, NavActivity.class));
                                             finish();

@@ -15,7 +15,6 @@ import com.hulhack.quandrum.wireframes.R;
 import com.hulhack.quandrum.wireframes.fragments.sales.PromosFragment;
 import com.hulhack.quandrum.wireframes.fragments.sales.CalendarFragment;
 
-import com.hulhack.quandrum.wireframes.fragments.sales.PaymentFragment;
 import com.hulhack.quandrum.wireframes.fragments.sales.MembershipFragment;
 
 /**

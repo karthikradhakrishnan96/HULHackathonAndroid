@@ -12,10 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hulhack.quandrum.wireframes.R;
+import com.hulhack.quandrum.wireframes.fragments.finance.CreditFragment;
 import com.hulhack.quandrum.wireframes.fragments.finance.InvoicesFragment;
-import com.hulhack.quandrum.wireframes.fragments.finance.CreditStatusFragment;
-import com.hulhack.quandrum.wireframes.fragments.finance.RefundStatusFragment;
-import com.hulhack.quandrum.wireframes.fragments.finance.ChequeFragment;
 
 /**
  * Created by Ratan on 7/27/2015.
@@ -24,7 +22,7 @@ public class FinanceFragment extends Fragment {
 
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
-    public static int int_items = 4 ;
+    public static int int_items = 2 ;
 
     @Nullable
     @Override
@@ -73,9 +71,9 @@ public class FinanceFragment extends Fragment {
         {
             switch (position){
                 case 0 : return new InvoicesFragment();
-                case 1 : return new CreditStatusFragment();
-                case 2 : return new RefundStatusFragment();
-                case 3 : return new ChequeFragment();
+                case 1 : return new CreditFragment();
+                //case 2 : return new RefundStatusFragment();
+                //case 3 : return new ChequeFragment();
             }
             return null;
         }
@@ -98,11 +96,11 @@ public class FinanceFragment extends Fragment {
                 case 0 :
                     return "Open Invoices";
                 case 1 :
-                    return "Credit Status";
-                case 2 :
-                    return "Refund Status";
-                case 3:
-                    return "HUL Cheques";
+                   return "Credit/Debit Status";
+                //case 2 :
+                 //   return "Refund Status";
+                //case 3:
+                 //   return "HUL Cheques";
             }
             return null;
         }

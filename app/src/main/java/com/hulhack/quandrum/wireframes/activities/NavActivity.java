@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.hulhack.quandrum.wireframes.R;
-import com.hulhack.quandrum.wireframes.fragments.AlertsFragment;
 import com.hulhack.quandrum.wireframes.fragments.ComplaintsFragment;
 
 import com.hulhack.quandrum.wireframes.fragments.DetailsFragment;
@@ -41,6 +40,10 @@ public class NavActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        
+
+        drawer.closeDrawer(GravityCompat.START);
     }
 
     @Override
@@ -86,11 +89,7 @@ public class NavActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_alerts) {
-            fragment = new AlertsFragment();
-            setTitle("Important Alerts");
-
-        } else if (id == R.id.nav_complaints) {
+        if (id == R.id.nav_complaints) {
             fragment = new ComplaintsFragment();
             setTitle("Complaints and Queries");
 
