@@ -70,8 +70,8 @@ public class FinanceFragment extends Fragment {
         public Fragment getItem(int position)
         {
             switch (position){
-                case 0 : return new InvoicesFragment();
-                case 1 : return new CreditFragment();
+                case 0 : return new CreditFragment();
+                case 1 : return new InvoicesFragment();
                 //case 2 : return new RefundStatusFragment();
                 //case 3 : return new ChequeFragment();
             }
@@ -94,9 +94,9 @@ public class FinanceFragment extends Fragment {
 
             switch (position){
                 case 0 :
-                    return "Open Invoices";
+                    return "Credit/Debit Status";
                 case 1 :
-                   return "Credit/Debit Status";
+                   return "Open Invoices";
                 //case 2 :
                  //   return "Refund Status";
                 //case 3:
