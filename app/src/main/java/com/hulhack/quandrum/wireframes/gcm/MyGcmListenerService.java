@@ -12,7 +12,7 @@ import android.util.Log;
 import com.google.android.gms.gcm.GcmListenerService;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.hulhack.quandrum.wireframes.R;
-import com.hulhack.quandrum.wireframes.activities.NavActivity;
+import com.hulhack.quandrum.wireframes.activities.MapsActivity;
 
 public class MyGcmListenerService extends GcmListenerService {
 
@@ -28,11 +28,9 @@ public class MyGcmListenerService extends GcmListenerService {
         }
         String mes = extras.getString("title");
 
-        Log.i("GCM", "Received : " + extras.getString("title"));
-
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        Intent intent = new Intent(this, NavActivity.class);
+        Intent intent = new Intent(this, MapsActivity.class);
 // use System.currentTimeMillis() to have a unique ID for the pending intent
         PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
         Notification n = new Notification.Builder(this)
@@ -46,6 +44,7 @@ public class MyGcmListenerService extends GcmListenerService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(0, n);
+
     }
 
 
