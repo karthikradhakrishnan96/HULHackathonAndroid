@@ -56,9 +56,11 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Hindustan Unilever");
 
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
-        if(prefs.contains("token"))
+        if(prefs.contains("token")) {
             startActivity(new Intent(this, NavActivity.class));
-        
+            finish();
+        }
+
         mNumber=(EditText)findViewById(R.id.editText);
         // Tag used to cancel the request
         circularProgressButton=(CircularProgressButton)findViewById(R.id.btnWithText);
