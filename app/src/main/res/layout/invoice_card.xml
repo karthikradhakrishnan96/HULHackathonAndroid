@@ -42,7 +42,7 @@
                 android:padding="8dp"
                 android:text="Select the criticality of your complaint"
                 android:textColor="#666"
-                android:textSize="18dp" />
+                android:textSize="15dp" />
 
         </LinearLayout>
 
@@ -63,7 +63,7 @@
                 android:padding="8dp"
                 android:text="Select the criticality of your complaint"
                 android:textColor="#666"
-                android:textSize="18dp" />
+                android:textSize="15dp" />
             <!--
 
             <LinearLayout
