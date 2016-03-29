@@ -20,7 +20,7 @@
             android:layout_marginTop="8dp"
             android:background="#212121"
             android:gravity="center"
-            android:padding="16dp"
+            android:padding="15dp"
             android:text="TextView"
             android:textColor="#ffffff"
             app:label_backgroundColor="#03A9F4"

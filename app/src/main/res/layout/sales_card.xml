@@ -12,38 +12,41 @@
         android:animateLayoutChanges="true"
         android:orientation="vertical">
 
-
+        <com.hulhack.quandrum.wireframes.libraries.LabelTextView
+            android:id="@+id/CUSTOMER_ID"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="#03A9F4"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="TextView"
+            android:textColor="#ffffff"
+            app:label_backgroundColor="#03A9F4"
+            app:label_distance="15dp"
+            app:label_orientation="LEFT_TOP"
+            app:label_text="POP"
+            app:label_textSize="10sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:layout_height="wrap_content">
 
             <com.devspark.robototextview.widget.RobotoTextView
-                android:id="@+id/CUSTOMER_ID"
+                android:id="@+id/RS_Sales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:maxLines="3"
                 android:padding="8dp"
-                android:text="Select the criticality of your complaint"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:textStyle="bold"/>
-            <!--
-            <com.devspark.robototextview.widget.RobotoTextView
-                android:id="@+id/RS_Name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:maxLines="3"
-                android:padding="8dp"
-                android:text="Select the criticality of your complaint"
+                android:text=""
                 android:textColor="#666"
                 android:textSize="18dp" />
-                -->
+
         </LinearLayout>
+
+
 
         <LinearLayout
             android:id="@+id/frame_expand"
@@ -60,12 +63,15 @@
                 android:padding="8dp"
                 android:text="Select the criticality of your complaint"
                 android:textColor="#666"
-                android:textSize="14dp" />
+                android:textSize="18dp" />
             <!--
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <com.devspark.robototextview.widget.RobotoTextView
-                    android:id="@+id/Region"
+                    android:id="@+id/promo_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -76,7 +82,7 @@
                     android:textSize="15dp" />
 
                 <com.devspark.robototextview.widget.RobotoTextView
-                    android:id="@+id/RS_Sales"
+                    android:id="@+id/promo_investment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -85,12 +91,14 @@
                     android:text="Select the criticality of your complaint"
                     android:textColor="#666"
                     android:textSize="15dp" />
+            </LinearLayout>
 
-
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <com.devspark.robototextview.widget.RobotoTextView
-                    android:id="@+id/RS_Sales_forecast"
+                    android:id="@+id/promo_start"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -100,11 +108,21 @@
                     android:textColor="#666"
                     android:textSize="18dp" />
 
-
-                -->
-
+                <com.devspark.robototextview.widget.RobotoTextView
+                    android:id="@+id/promo_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="3"
+                    android:padding="8dp"
+                    android:text="Select the criticality of your complaint"
+                    android:textColor="#666"
+                    android:textSize="18dp" />
+            </LinearLayout>
+            -->
 
         </LinearLayout>
+
 
 
     </LinearLayout>

@@ -17,6 +17,7 @@ import com.hulhack.quandrum.wireframes.fragments.finance.CreditFragment;
 import com.hulhack.quandrum.wireframes.fragments.sales.PromosFragment;
 import com.hulhack.quandrum.wireframes.libraries.LabelTextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class CreditAdapter extends RecyclerView.Adapter<CreditAdapter.MyViewHolder> {
@@ -47,7 +48,9 @@ public class CreditAdapter extends RecyclerView.Adapter<CreditAdapter.MyViewHold
         RobotoTextView date = holder.date;
         RobotoTextView shortdesc = holder.shortdesc;
 
-        amount.setText("AMOUNT: Rs. "+dataSet.get(listPosition).amount);
+        DecimalFormat formatter = new DecimalFormat("#,###.00");
+
+        amount.setText("AMOUNT: Rs. "+formatter.format(Double.parseDouble(dataSet.get(listPosition).amount)));
         if(dataSet.get(listPosition).shortdesc.equals("CREDIT")) {
             amount.setLabelText("CREDIT");
             amount.setLabelBackgroundColor(Color.GREEN);

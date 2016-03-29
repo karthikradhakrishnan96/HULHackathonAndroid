@@ -16,6 +16,7 @@ import com.hulhack.quandrum.wireframes.data.SalesModel;
 import com.hulhack.quandrum.wireframes.fragments.sales.MembershipFragment;
 import com.hulhack.quandrum.wireframes.libraries.LabelTextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class SalesAdapter extends RecyclerView.Adapter<SalesAdapter.MyViewHolder> {
@@ -46,14 +47,18 @@ public class SalesAdapter extends RecyclerView.Adapter<SalesAdapter.MyViewHolder
         RobotoTextView Area = holder.Area;
         RobotoTextView RS_Sales_forecast = holder.RS_Sales_forecast;
         RobotoTextView RS_Sales = holder.RS_Sales;
-        RobotoTextView CUSTOMER_ID = holder.CUSTOMER_ID;
+        LabelTextView CUSTOMER_ID = holder.CUSTOMER_ID;
 
-        CUSTOMER_ID.setText("MOC: "+dataSet.get(listPosition).CUSTOMER_ID);
+        DecimalFormat formatter = new DecimalFormat("#,###.00");
+
+        CUSTOMER_ID.setText("MOC: " + dataSet.get(listPosition).CUSTOMER_ID);
+        CUSTOMER_ID.setLabelEnable(false);
+        RS_Sales.setText("RS Sales: Rs. "+formatter.format(Double.parseDouble(dataSet.get(listPosition).RS_Sales)));
         String secondaryText = "Region: "+dataSet.get(listPosition).Region+"\n"+
                                 "RS Name: "+dataSet.get(listPosition).RS_Name+"\n"+
                                 "Area: "+dataSet.get(listPosition).Area+"\n"+
-                                "RS Sales Forecast: "+dataSet.get(listPosition).RS_Sales_forecast+"\n"+
-                                "RS Sales: "+dataSet.get(listPosition).RS_Sales;
+                                "RS Sales Forecast: Rs. "+formatter.format(Double.parseDouble(dataSet.get(listPosition).RS_Sales_forecast))+"\n";
+
         Area.setText(secondaryText);
 /*
         Region.setText(dataSet.get(listPosition).Region);
@@ -77,7 +82,7 @@ public class SalesAdapter extends RecyclerView.Adapter<SalesAdapter.MyViewHolder
         public RobotoTextView Area;
         public RobotoTextView RS_Sales_forecast;
         public RobotoTextView RS_Sales;
-        public RobotoTextView CUSTOMER_ID;
+        public LabelTextView CUSTOMER_ID;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -85,8 +90,8 @@ public class SalesAdapter extends RecyclerView.Adapter<SalesAdapter.MyViewHolder
             //this.RS_Name= (RobotoTextView) itemView.findViewById(R.id.RS_Name);
             this.Area= (RobotoTextView) itemView.findViewById(R.id.Area);
             //this.RS_Sales_forecast= (RobotoTextView) itemView.findViewById(R.id.RS_Sales_forecast);
-            //this.RS_Sales= (RobotoTextView) itemView.findViewById(R.id.RS_Sales);
-            this.CUSTOMER_ID= (RobotoTextView) itemView.findViewById(R.id.CUSTOMER_ID);
+            this.RS_Sales= (RobotoTextView) itemView.findViewById(R.id.RS_Sales);
+            this.CUSTOMER_ID= (LabelTextView) itemView.findViewById(R.id.CUSTOMER_ID);
         }
     }
 }

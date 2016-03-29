@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,6 +96,7 @@ public class MembershipFragment extends Fragment {
                     public void onResponse(String response) {
                         try {
                             pDialog.hide();
+                            Log.i("sales response", response);
                             JSONArray netArray = new JSONArray(response);
                             for(int i=0; i<netArray.length();i++){
                                 JSONObject obj = netArray.getJSONObject(i);
