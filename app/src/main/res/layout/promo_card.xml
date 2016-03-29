@@ -42,7 +42,7 @@
                 android:padding="8dp"
                 android:text="Select the criticality of your complaint"
                 android:textColor="#666"
-                android:textSize="18dp" />
+                android:textSize="15dp" />
 
             <com.devspark.robototextview.widget.RobotoTextView
                 android:id="@+id/promo_brand"
@@ -53,7 +53,7 @@
                 android:padding="8dp"
                 android:text="Select the criticality of your complaint"
                 android:textColor="#666"
-                android:textSize="18dp" />
+                android:textSize="15dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -71,7 +71,7 @@
                 android:padding="8dp"
                 android:text="Select the criticality of your complaint"
                 android:textColor="#666"
-                android:textSize="18dp" />
+                android:textSize="15dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

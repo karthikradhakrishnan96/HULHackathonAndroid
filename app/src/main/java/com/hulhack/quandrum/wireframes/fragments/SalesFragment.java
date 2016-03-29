@@ -97,7 +97,7 @@ public class SalesFragment extends Fragment {
                 case 0 :
                     return "Promos";
                 case 1 :
-                    return "Sales Details   ";
+                    return "Sales Details";
                 case 2:
                     return "Calendar";
             }

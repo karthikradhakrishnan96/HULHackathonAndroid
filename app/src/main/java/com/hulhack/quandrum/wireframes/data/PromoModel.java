@@ -9,13 +9,13 @@ public class PromoModel {
 
     public PromoModel(String product, String business, String brand, String name, String id, String investment, String start, String end) {
         this.product = product;
-        this.business = "BUSINESS: "+capitalizeFirstLetter(business);
-        this.brand = "BRAND: "+capitalizeFirstLetter(brand);
-        this.name = "PROMO: "+name;
+        this.business = "Business: "+capitalizeFirstLetter(business);
+        this.brand = "Brand: "+capitalizeFirstLetter(brand);
+        this.name = "Promo: "+name;
         this.id = "ID: "+id;
-        this.investment = "INVESTMENT TYPE: "+investment;
-        this.start = "START: "+start;
-        this.end = "END: "+end;
+        this.investment = "Investment Type: "+investment;
+        this.start = "Start: "+start;
+        this.end = "End: "+end;
 
     }
 
