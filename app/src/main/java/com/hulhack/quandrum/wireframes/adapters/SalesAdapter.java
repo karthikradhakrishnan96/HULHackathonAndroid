@@ -57,7 +57,7 @@ public class SalesAdapter extends RecyclerView.Adapter<SalesAdapter.MyViewHolder
         String secondaryText = "Region: "+dataSet.get(listPosition).Region+"\n"+
                                 "RS Name: "+dataSet.get(listPosition).RS_Name+"\n"+
                                 "Area: "+dataSet.get(listPosition).Area+"\n"+
-                                "RS Sales Forecast: Rs. "+formatter.format(Double.parseDouble(dataSet.get(listPosition).RS_Sales_forecast))+"\n";
+                                "RS Sales Forecast: Rs. "+formatter.format(Double.parseDouble(dataSet.get(listPosition).RS_Sales_forecast));
 
         Area.setText(secondaryText);
 /*
