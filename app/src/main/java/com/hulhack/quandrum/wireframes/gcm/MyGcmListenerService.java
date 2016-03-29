@@ -26,7 +26,7 @@ public class MyGcmListenerService extends GcmListenerService {
         for (String key : extras.keySet()) {
             Log.i("GCM", key);
         }
-        String mes = extras.getString("title");
+        String mes = "A delivery truck has left the warehouse. Click here to track.";
 
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -36,7 +36,7 @@ public class MyGcmListenerService extends GcmListenerService {
         Notification n = new Notification.Builder(this)
                 .setContentTitle("Alert!")
                 .setContentText(mes)
-                .setSmallIcon(R.drawable.brij)
+                .setSmallIcon(R.drawable.alert)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setStyle(new Notification.BigTextStyle().bigText(mes))

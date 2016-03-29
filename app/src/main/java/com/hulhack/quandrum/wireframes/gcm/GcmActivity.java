@@ -16,7 +16,6 @@
 
 package com.hulhack.quandrum.wireframes.gcm;
 
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,12 +26,11 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.TextView;
 
+import com.dd.CircularProgressButton;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.hulhack.quandrum.wireframes.R;
-import com.hulhack.quandrum.wireframes.activities.NavActivity;
 
 public class GcmActivity extends AppCompatActivity {
 
@@ -40,16 +38,16 @@ public class GcmActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     SharedPreferences sharedPreferences;
     private BroadcastReceiver mRegistrationBroadcastReceiver;
-    private TextView mInformationTextView;
+    CircularProgressButton circularProgressButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gcm);
         setTitle("GCM Registration");
-        final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Please wait while we register you");
-        pDialog.show();
+        circularProgressButton = (CircularProgressButton)findViewById(R.id.btnWithText);
+        circularProgressButton.setIndeterminateProgressMode(true);
+
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -59,7 +57,7 @@ public class GcmActivity extends AppCompatActivity {
                         .getBoolean(QuickstartPreferences.SENT_TOKEN_TO_SERVER, false);
                 /*Intent i = new Intent(GcmActivity.this,NavActivity.class);
                 startActivity(i);*/
-                pDialog.hide();
+                circularProgressButton.setProgress(100);
                 finish();
                /* if (sentToken) {
                     mInformationTextView.setText("Finishing up...");
@@ -68,7 +66,6 @@ public class GcmActivity extends AppCompatActivity {
                 }*/
             }
         };
-        mInformationTextView = (TextView) findViewById(R.id.informationTextView);
 
         if (checkPlayServices()) {
             // Start IntentService to register this application with GCM.

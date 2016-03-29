@@ -5,35 +5,30 @@
         <group android:id="@+id/group0">
             <item
                 android:id="@+id/nav_details"
-                android:icon="@android:drawable/ic_menu_camera"
                 android:title="Profile" />
         </group>
 
         <group android:id="@+id/group1">
             <item
                 android:id="@+id/nav_finance"
-                android:icon="@android:drawable/ic_menu_camera"
                 android:title="Finance" />
         </group>
 
         <group android:id="@+id/group2">
             <item
                 android:id="@+id/nav_sales"
-                android:icon="@android:drawable/ic_menu_gallery"
                 android:title="Sales and Marketing" />
         </group>
 
         <group android:id="@+id/group3">
             <item
                 android:id="@+id/nav_supply"
-                android:icon="@android:drawable/ic_menu_slideshow"
                 android:title="Supply Chain" />
         </group>
 
         <group android:id="@+id/group4">
             <item
                 android:id="@+id/nav_complaints"
-                android:icon="@android:drawable/ic_menu_manage"
                 android:title="Complaints" />
         </group>
 
