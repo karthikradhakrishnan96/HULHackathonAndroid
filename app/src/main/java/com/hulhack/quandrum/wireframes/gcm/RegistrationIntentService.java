@@ -27,6 +27,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 import com.hulhack.quandrum.wireframes.R;
 import com.hulhack.quandrum.wireframes.activities.MainActivity;
+import com.hulhack.quandrum.wireframes.utils.Router;
 
 
 public class RegistrationIntentService extends IntentService {
@@ -58,6 +59,8 @@ public class RegistrationIntentService extends IntentService {
                 Log.e(TAG, "GCM Registration Token: " + token);
                 sharedPreferences.edit().putBoolean(QuickstartPreferences.SENT_TOKEN_TO_SERVER, true).apply();
                 sharedPreferences.edit().putString("myid", token).apply();
+                Router.token = token;
+
                 // TODO: Implement this method to send any registration to your app's servers.
                 /*Intent i = new Intent(this, RegisterActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

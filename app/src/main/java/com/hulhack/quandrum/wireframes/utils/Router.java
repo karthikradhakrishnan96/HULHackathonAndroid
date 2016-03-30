@@ -22,6 +22,7 @@ import java.util.Map;
 public class Router extends Application {
     private static Router mInstance;
     public static final String URL = "https://77ec4210.ngrok.io/";
+    public static String token;
 
     public void onCreate() {
         super.onCreate();

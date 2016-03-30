@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
 
-        mygcmtoken = prefs.getString("myid","null");
+
 
         if(prefs.contains("token")) {
             startActivity(new Intent(this, NavActivity.class));
@@ -103,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                         String URL="https://77ec4210.ngrok.io/login";
+                        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
+                        mygcmtoken = prefs.getString("myid","null");
                         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL ,
                                 new Response.Listener<String>() {
                                     @Override
