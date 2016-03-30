@@ -59,7 +59,7 @@ public class NavActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.nav, menu);
+        //getMenuInflater().inflate(R.menu.nav, menu);
         FrameLayout frame = (FrameLayout) findViewById(R.id.content_frame);
         frame.removeAllViews();
         Fragment fragment = null;

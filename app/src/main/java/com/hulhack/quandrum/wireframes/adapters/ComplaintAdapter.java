@@ -59,6 +59,8 @@ public class ComplaintAdapter extends RecyclerView.Adapter<ComplaintAdapter.MyVi
         category.setLabelText(dataSet.get(listPosition).status);
         if(dataSet.get(listPosition).status.equals("PENDING"))
             category.setLabelBackgroundColor(Color.parseColor("#CD3A3A"));
+        else
+            category.setLabelBackgroundColor(Color.parseColor("#6D9B00"));
         subject.setText(dataSet.get(listPosition).subject);
         solution.setText(dataSet.get(listPosition).solution);
         id.setText(dataSet.get(listPosition).id);

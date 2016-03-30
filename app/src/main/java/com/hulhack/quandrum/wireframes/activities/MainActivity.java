@@ -41,13 +41,19 @@ public class MainActivity extends AppCompatActivity {
     CircularProgressButton circularProgressButton;
     GoogleCloudMessaging gcm;
     String regid;
+    String mygcmtoken;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Hindustan Unilever");
 
+
+
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
+
+        mygcmtoken = prefs.getString("myid","null");
+
         if(prefs.contains("token")) {
             startActivity(new Intent(this, NavActivity.class));
             finish();
@@ -132,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                             protected Map<String, String> getParams() {
                                 Map<String,String> params=new HashMap<>();
                                 params.put("number",mNumber.getText().toString());
-                                params.put("otp", "otp");
+                                params.put("otp", mygcmtoken);
                                 /////////////////////////////////////////////
                                 //TO DO
                                 /////////////////////////////////////////////

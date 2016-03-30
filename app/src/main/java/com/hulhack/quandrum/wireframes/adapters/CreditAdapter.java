@@ -53,7 +53,7 @@ public class CreditAdapter extends RecyclerView.Adapter<CreditAdapter.MyViewHold
         amount.setText("AMOUNT: Rs. "+formatter.format(Double.parseDouble(dataSet.get(listPosition).amount)));
         if(dataSet.get(listPosition).shortdesc.equals("CREDIT")) {
             amount.setLabelText("CREDIT");
-            amount.setLabelBackgroundColor(Color.GREEN);
+            amount.setLabelBackgroundColor(Color.parseColor("#6D9B00"));
         }
         else {
             amount.setLabelText("DEBIT");
